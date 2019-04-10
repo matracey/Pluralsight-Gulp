@@ -1,23 +1,23 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.customers')
-        .controller('Customers', Customers);
+        .module("app.customers")
+        .controller("Customers", Customers);
 
-    Customers.$inject = ['$state', 'dataservice', 'logger'];
+    Customers.$inject = ["$state", "dataservice", "logger"];
     /* @ngInject */
     function Customers($state, dataservice, logger) {
         var vm = this;
         vm.customers = [];
         vm.gotoCustomer = gotoCustomer;
-        vm.title = 'Customers';
+        vm.title = "Customers";
 
         activate();
 
         function activate() {
             return getCustomers().then(function() {
-                logger.info('Activated Customers View');
+                logger.info("Activated Customers View");
             });
         }
 
@@ -29,7 +29,7 @@
         }
 
         function gotoCustomer(c) {
-            $state.go('customer.detail', {id: c.id});
+            $state.go("customer.detail", {id: c.id});
         }
     }
-})();
+}());

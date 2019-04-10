@@ -1,11 +1,11 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('blocks.exception')
-        .factory('exception', exception);
+        .module("blocks.exception")
+        .factory("exception", exception);
 
-    exception.$inject = ['logger'];
+    exception.$inject = [ "logger" ];
     /* @ngInject */
     function exception(logger) {
         var service = {
@@ -19,4 +19,4 @@
             };
         }
     }
-})();
+}());

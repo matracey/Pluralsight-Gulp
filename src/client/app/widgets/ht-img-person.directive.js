@@ -1,11 +1,11 @@
 (function () {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.widgets')
-        .directive('htImgPerson', htImgPerson);
+        .module("app.widgets")
+        .directive("htImgPerson", htImgPerson);
 
-    htImgPerson.$inject = ['config'];
+    htImgPerson.$inject = [ "config" ];
     /* @ngInject */
     function htImgPerson (config) {
         //Usage:
@@ -14,15 +14,15 @@
         var unknownImage = config.unknownPersonImageSource;
         var directive = {
             link: link,
-            restrict: 'A'
+            restrict: "A"
         };
         return directive;
 
         function link(scope, element, attrs) {
-            attrs.$observe('htImgPerson', function (value) {
+            attrs.$observe("htImgPerson", function (value) {
                 value = basePath + (value || unknownImage);
-                attrs.$set('src', value);
+                attrs.$set("src", value);
             });
         }
     }
-})();
+}());

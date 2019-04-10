@@ -1,33 +1,33 @@
 (function() {
-    'use strict';
+    "use strict";
 
-    var core = angular.module('app.core');
+    var core = angular.module("app.core");
 
     core.config(toastrConfig);
 
-    toastrConfig.$inject = ['toastr'];
+    toastrConfig.$inject = [ "toastr" ];
     /* @ngInject */
     function toastrConfig(toastr) {
         toastr.options.timeOut = 4000;
-        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.options.positionClass = "toast-bottom-right";
     }
 
     var config = {
-        appErrorPrefix: '[GulpPatterns Error] ', //Configure the exceptionHandler decorator
-        appTitle: 'Gulp Patterns Demo',
-        imageBasePath: '/images/photos/',
-        unknownPersonImageSource: 'unknown_person.jpg'
+        appErrorPrefix: "[GulpPatterns Error] ", //Configure the exceptionHandler decorator
+        appTitle: "Gulp Patterns Demo",
+        imageBasePath: "/images/photos/",
+        unknownPersonImageSource: "unknown_person.jpg"
     };
 
-    core.value('config', config);
+    core.value("config", config);
 
     core.config(configure);
 
-    configure.$inject = ['$compileProvider', '$logProvider',
-                         'routerHelperProvider', 'exceptionHandlerProvider'];
+    configure.$inject = ["$compileProvider", "$logProvider",
+        "routerHelperProvider", "exceptionHandlerProvider"];
     /* @ngInject */
     function configure ($compileProvider, $logProvider,
-                         routerHelperProvider, exceptionHandlerProvider) {
+        routerHelperProvider, exceptionHandlerProvider) {
         $compileProvider.debugInfoEnabled(false);
 
         // turn debugging off/on (no info or warn)
@@ -44,16 +44,16 @@
                 ready: ready
             };
 
-            ready.$inject = ['dataservice'];
+            ready.$inject = [ "dataservice" ];
             /* @ngInject */
             function ready(dataservice) {
                 return dataservice.ready();
             }
 
             routerHelperProvider.configure({
-                docTitle: 'Gulp: ',
+                docTitle: "Gulp: ",
                 resolveAlways: resolveAlways
             });
         }
     }
-})();
+}());

@@ -1,18 +1,18 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.core', [
+        .module("app.core", [
             /* Angular modules */
-            'ngAnimate',
-            'ngSanitize',
+            "ngAnimate",
+            "ngSanitize",
             /* Cross-app modules */
-            'blocks.exception',
-            'blocks.logger',
-            'blocks.router',
+            "blocks.exception",
+            "blocks.logger",
+            "blocks.router",
             /* 3rd-party modules */
-            'ui.router',
-            'ngplus'
+            "ui.router",
+            "ngplus"
         ]);
 
-})();
+}());

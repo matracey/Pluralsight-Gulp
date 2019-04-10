@@ -1,22 +1,22 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.layout')
-        .directive('htTopNav', htTopNav);
+        .module("app.layout")
+        .directive("htTopNav", htTopNav);
 
     /* @ngInject */
     function htTopNav () {
         var directive = {
             bindToController: true,
             controller: TopNavController,
-            controllerAs: 'vm',
-            restrict: 'EA',
+            controllerAs: "vm",
+            restrict: "EA",
             scope: {
-                'tagline': '=',
-                'title': '='
+                "tagline": "=",
+                "title": "="
             },
-            templateUrl: 'app/layout/ht-top-nav.html'
+            templateUrl: "app/layout/ht-top-nav.html"
         };
 
         /* @ngInject */
@@ -26,4 +26,4 @@
 
         return directive;
     }
-})();
+}());

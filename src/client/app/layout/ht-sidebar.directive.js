@@ -1,9 +1,9 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.layout')
-        .directive('htSidebar', htSidebar);
+        .module("app.layout")
+        .directive("htSidebar", htSidebar);
 
     /* @ngInject */
     function htSidebar () {
@@ -16,21 +16,21 @@
         var directive = {
             bindToController: true,
             link: link,
-            restrict: 'EA',
+            restrict: "EA",
             scope: {
-                whenDoneAnimating: '&?'
+                whenDoneAnimating: "&?"
             }
         };
         return directive;
 
         function link(scope, element, attrs) {
-            var $sidebarInner = element.find('.sidebar-inner');
-            var $dropdownElement = element.find('.sidebar-dropdown a');
-            element.addClass('sidebar');
+            var $sidebarInner = element.find(".sidebar-inner");
+            var $dropdownElement = element.find(".sidebar-dropdown a");
+            element.addClass("sidebar");
             $dropdownElement.click(dropdown);
 
             function dropdown(e) {
-                var dropClass = 'dropy';
+                var dropClass = "dropy";
                 e.preventDefault();
                 if (!$dropdownElement.hasClass(dropClass)) {
                     $sidebarInner.slideDown(350, scope.whenDoneAnimating);
@@ -42,4 +42,4 @@
             }
         }
     }
-})();
+}());

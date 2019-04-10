@@ -1,3 +1,4 @@
+/* eslint-disable max-len, no-extend-native */
 /*
  *  Phantom.js does not support Function.prototype.bind (at least not before v.2.0
  *  That's just crazy. Everybody supports bind.
@@ -8,20 +9,20 @@
 if (!Function.prototype.bind) {
     /*jshint freeze: false */
     Function.prototype.bind = function (oThis) {
-        if (typeof this !== 'function') {
+        if (typeof this !== "function") {
             // closest thing possible to the ECMAScript 5
             // internal IsCallable function
-            var msg = 'Function.prototype.bind - what is trying to be bound is not callable';
+            var msg = "Function.prototype.bind - what is trying to be bound is not callable";
             throw new TypeError(msg);
         }
 
-        var aArgs = Array.prototype.slice.call(arguments, 1),
-            fToBind = this,
-            FuncNoOp = function () {},
-            fBound = function () {
-                return fToBind.apply(this instanceof FuncNoOp && oThis ? this : oThis,
-                    aArgs.concat(Array.prototype.slice.call(arguments)));
-            };
+        var aArgs = Array.prototype.slice.call(arguments, 1);
+        var fToBind = this;
+        var FuncNoOp = function () {};
+        var fBound = function () {
+            return fToBind.apply(this instanceof FuncNoOp && oThis ? this : oThis,
+                aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
 
         FuncNoOp.prototype = this.prototype;
         fBound.prototype = new FuncNoOp();

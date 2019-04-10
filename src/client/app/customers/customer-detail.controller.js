@@ -1,11 +1,11 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.customers')
-        .controller('CustomerDetail', CustomerDetail);
+        .module("app.customers")
+        .controller("CustomerDetail", CustomerDetail);
 
-    CustomerDetail.$inject = ['$stateParams', '$window', 'dataservice', 'logger'];
+    CustomerDetail.$inject = ["$stateParams", "$window", "dataservice", "logger"];
     /* @ngInject */
     function CustomerDetail($stateParams, $window, dataservice, logger) {
         var vm = this;
@@ -15,13 +15,13 @@
         vm.isUnchanged = isUnchanged;
         vm.getFullName = getFullName;
         vm.save = save;
-        vm.title = 'Customer Detail';
+        vm.title = "Customer Detail";
 
         activate();
 
         function activate() {
             return getCustomer($stateParams.id).then(function() {
-                logger.info('Activated Customer Detail View');
+                logger.info("Activated Customer Detail View");
             });
         }
 
@@ -46,12 +46,12 @@
         }
 
         function getFullName() {
-            return vm.customer && vm.customer.firstName + ' ' + vm.customer.lastName;
+            return vm.customer && vm.customer.firstName + " " + vm.customer.lastName;
         }
 
         function save() {
             vm.original = angular.copy(vm.customer);
-            logger.success('Saving Customer (not really)');
+            logger.success("Saving Customer (not really)");
         }
     }
-})();
+}());

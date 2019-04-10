@@ -1,11 +1,11 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.layout')
-        .controller('Sidebar', Sidebar);
+        .module("app.layout")
+        .controller("Sidebar", Sidebar);
 
-    Sidebar.$inject = ['$state', 'routerHelper'];
+    Sidebar.$inject = ["$state", "routerHelper"];
     /* @ngInject */
     function Sidebar($state, routerHelper) {
         var vm = this;
@@ -27,10 +27,10 @@
 
         function isCurrent(route) {
             if (!route.title || !$state.current || !$state.current.title) {
-                return '';
+                return "";
             }
             var menuName = route.title;
-            return $state.current.title.substr(0, menuName.length) === menuName ? 'current' : '';
+            return $state.current.title.substr(0, menuName.length) === menuName ? "current" : "";
         }
     }
-})();
+}());

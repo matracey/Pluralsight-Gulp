@@ -1,11 +1,11 @@
 (function() {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.customers')
+        .module("app.customers")
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
+    appRun.$inject = [ "routerHelper" ];
     /* @ngInject */
     function appRun(routerHelper) {
         routerHelper.configureStates(getStates());
@@ -14,37 +14,37 @@
     function getStates() {
         return [
             {
-                state: 'customer',
+                state: "customer",
                 config: {
                     absract: true,
-                    template: '<ui-view class="shuffle-animation"/>',
-                    url: '/customer'
+                    template: "<ui-view class=\"shuffle-animation\"/>",
+                    url: "/customer"
                 }
             },
             {
-                state: 'customer.list',
+                state: "customer.list",
                 config: {
-                    url: '/list',
-                    templateUrl: 'app/customers/customers.html',
-                    controller: 'Customers',
-                    controllerAs: 'vm',
-                    title: 'Customers',
+                    url: "/list",
+                    templateUrl: "app/customers/customers.html",
+                    controller: "Customers",
+                    controllerAs: "vm",
+                    title: "Customers",
                     settings: {
                         nav: 2,
-                        content: '<i class="fa fa-group"></i> Customers'
+                        content: "<i class=\"fa fa-group\"></i> Customers"
                     }
                 }
             },
             {
-                state: 'customer.detail',
+                state: "customer.detail",
                 config: {
-                    url: '/:id',
-                    templateUrl: 'app/customers/customer-detail.html',
-                    controller: 'CustomerDetail',
-                    controllerAs: 'vm',
-                    title: 'Customer Detail'
+                    url: "/:id",
+                    templateUrl: "app/customers/customer-detail.html",
+                    controller: "CustomerDetail",
+                    controllerAs: "vm",
+                    title: "Customer Detail"
                 }
             }
         ];
     }
-})();
+}());
